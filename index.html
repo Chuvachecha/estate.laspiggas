@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Las Piggas Real Estate Broker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css.css">
+</head>
+<body>
+  <div id="google_translate_element"></div>
+  <div class="wrap">
+    <header>
+      <div class="logo">
+        <div class="mark">LP</div>
+        <div class="brand">Las Piggas Real Estate Broker</div>
+      </div>
+      <nav>
+        <a href="main1.html">Переключить язык</a>
+        <a href="#">Home</a>
+        <a href="#properties">Properties</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="https://discord.gg/tJmrqKrdTF">Call Now</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="bg"></div>
+        <div class="overlay">
+          <div>
+            <h1>Find Your Dream Home in Las Piggas</h1>
+            <p>Your trusted partner in buying, selling, and renting property.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="properties" class="section">
+        <div class="wrap">
+          <h2>Featured Properties</h2>
+          <div class="grid">
+            <div class="card">
+              <img src="images\property1\front.png" alt="Featured 1">
+              <h3>Plasma residential complex</h3>
+              <p>4 apartments avaible</p>
+              <a class="btn btn-primary" href="property1.html">View Details</a>
+            </div>
+
+            <div class="card">
+              <img src="images\property2\front.png" alt="Featured 1">
+              <h3>"Ocean plaza" shopping maul</h3>
+              <p>8 floors available</p>
+              <a class="btn btn-primary" href="property2.html">View Details</a>
+            </div>
+
+            <div class="card">
+              <img src="images\property3\front.png" alt="Featured 1">
+              <h3>Contact our discord to place</h3>
+              <p>Place for your listing</p>
+              <a class="btn btn-primary" href="#">View Details</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="wrap two-col">
+          <div>
+            <h2>Why Choose Us</h2>
+            <div class="features">
+              <div class="feature">
+                <h4>Trusted Agency</h4>
+                <p>Decades of experience and a proven track record of successful transactions and satisfied clients.</p>
+              </div>
+              <div class="feature">
+                <h4>Local Expertise</h4>
+                <p>Deep market knowledge of Las Piggas neighborhoods so you can find the best match.</p>
+              </div>
+              <div class="feature">
+                <h4>Exclusive Listings</h4>
+                <p>Access to off-market and premium properties not found anywhere else.</p>
+              </div>
+            </div>
+
+            <h2 style="margin-top:26px">About Us</h2>
+            <p>Las Piggas Real Estate Broker is a client-first agency committed to integrity, market knowledge, and excellent service. We guide buyers and sellers through every step of the real estate journey.</p>
+
+            <div style="margin-top:18px" class="testimonials">
+              <div class="testimonial">
+                <strong>Clayton R. Swineworth</strong>
+                <p style="margin:8px 0 0">"Best service ever, they destroyed a whole village so i can build myself a nice mansion"</p>
+              </div>
+
+              <div class="testimonial">
+                <strong>Joseph L. Porkman</strong>
+                <p style="margin:8px 0 0">"Nice place to spend tax payers money, next im going to buy a sex dungeon for my slaves"</p>
+              </div>
+            </div>
+
+          </div>
+
+          <aside id="services">
+            <h3>Our Services</h3>
+            <ul style="padding-left:18px;color:var(--muted)">
+              <li>Buy & Sell Residential</li>
+              <li>Rentals & Property Management</li>
+              <li>Investment & Advisory</li>
+              <li>Valuation & Staging</li>
+            </ul>
+
+            <div style="margin-top:20px">
+              <h3>Contact</h3>
+              <p style="margin:6px 0">Phone: +17028719500</p>
+              <p style="margin:6px 0">Email: estate.laspiggas@proton.me</p>
+              <div style="margin-top:12px">
+                <a class="btn" href="https://discord.gg/tJmrqKrdTF">Our discord</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="wrap">
+          <h2>Contact Us</h2>
+          <div class="contact">
+<form id="discordForm" class="form">
+  <input type="text" id="name" placeholder="Name" required />
+  <textarea id="message" placeholder="Message" style="margin-top:10px"></textarea>
+  <button class="btn btn-primary" style="margin-top:12px;padding:10px 16px;border:none;cursor:pointer;">
+    Отправить сообщение
+  </button>
+</form>
+
+<script>
+  document.getElementById("discordForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+
+    fetch("https://discord.com/api/webhooks/1404586683185233980/T_rvN1GJwK107GIqxgcwUzcwn2Y2Vl4fdoZGPPQoLxsxs2wiz6Ae5dstpVOtID93JNm_", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: `**New message from ${name}:**\n${message}`
+      })
+    })
+    .then(res => {
+      if (res.ok) {
+        alert("Message sent to Discord!");
+        document.getElementById("discordForm").reset();
+      } else {
+        alert("Error sending message.");
+      }
+    })
+    .catch(err => alert("Request failed: " + err));
+  });
+</script>
+
+
+            <div class="map">
+              <!-- Replace with embedded Google Map iframe when ready -->
+              <div style="text-align:center;max-width:300px">
+                <strong>Las Piggas City</strong>
+                <p style="margin:8px 0 0;color:var(--muted)">Map will be soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="wrap footer-grid">
+        <div>
+          <strong>Las Piggas Real Estate Broker</strong>
+          <div style="color:var(--muted);margin-top:6px">© <span id="year"></span> All rights reserved.</div>
+        </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
