@@ -55,7 +55,8 @@
     nav a{color:var(--text);text-decoration:none;font-weight:600;padding:8px 12px;border-radius:10px}
     nav a:hover{color:var(--green-2);background:var(--muted)}
 
-    .cta-ghost{padding:8px 14px;border-radius:12px;border:2px solid var(--green-2);background:transparent;color:var(--green-2);font-weight:700}
+    .cta-ghost{padding:8px 14px;border-radius:12px;border:2px solid var(--green-2);background:transparent;color:var(--green-2);font-weight:700;transition: transform 0.3s ease, box-shadow 0.3s ease;}
+    .cta-ghost:hover{transform:translateY(-3px);box-shadow:0 11px 20px rgba(20,30,10,0.2)}
     .cta-primary{padding:10px 18px;border-radius:14px;border:none;background:var(--green-2);color:var(--white);font-weight:800;box-shadow:0 12px 30px rgba(91,135,49,0.18)}
 
     /* HERO */
@@ -433,6 +434,7 @@ function sendToDiscord() {
   </script>
 </body>
 </html>
+
 
 
 
